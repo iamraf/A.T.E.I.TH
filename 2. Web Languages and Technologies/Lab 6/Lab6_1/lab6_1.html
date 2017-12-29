@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <script>
+            function getFocus(obj)
+            {
+                obj.style.backgroundColor = "yellow"
+            }
+
+            function looseFocus(obj)
+            {
+                if(obj.value.length == 0)
+                {
+                    obj.style.backgroundColor = "red"
+                }
+                else
+                {
+                    obj.style.backgroundColor = "white"
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <p><input name="text1" onfocus="getFocus(this)" onblur="looseFocus(this)" type="text"></p>
+        <p><input name="text2" onfocus="getFocus(this)" onblur="looseFocus(this)" type="text"></p>
+        <p><input name="text3" onfocus="getFocus(this)" onblur="looseFocus(this)" type="text"></p>
+        <p><input name="text4" onfocus="getFocus(this)" onblur="looseFocus(this)" type="text"></p>
+
+        <span style="width:300; background-color:blue; color:white;" oncontextmenu="return false">
+			<p>The context menu never displays when you right-click in this box.</p>
+		</span>
+    </body>
+</html>

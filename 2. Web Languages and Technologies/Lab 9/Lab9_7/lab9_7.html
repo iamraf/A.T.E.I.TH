@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <script>
+            function myFunction()
+            {
+                var select = document.getElementById('s').selectedIndex;
+                var button = document.getElementById('button1');
+
+                if(button.value == "Xromatismos")
+                {
+                    button.value = "Apoxromatismos";
+
+                    if(select == "0")
+                    {
+                        var j = document.getElementsByTagName("h1");
+
+                        for(var i = 0; i < j.length; i++)
+                        {
+                            j[i].style.backgroundColor = "yellow";
+                        }
+                    }
+                    else
+                    {
+                        var j = document.getElementsByTagName("h2");
+
+                        for(var i = 0; i < j.length; i++)
+                        {
+                            j[i].style.backgroundColor = "yellow";
+                        }
+                    }
+                }
+                else
+                {
+                    button.value = "Xromatismos";
+
+                    if(select == "0")
+                    {
+                        var j = document.getElementsByTagName("h1");
+
+                        for(var i = 0; i < j.length; i++)
+                        {
+                            j[i].style.backgroundColor = "white";
+                        }
+
+                    }
+
+                    else
+                    {
+                        var j = document.getElementsByTagName("h2");
+
+                        for(var i = 0; i < j.length; i++)
+                        {
+                            j[i].style.backgroundColor = "white";
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <input id="button1" type="button" value="Xromatismos" onclick="myFunction()">
+
+        <select id="s">
+            <option>1 Epipedo</option>
+            <option>2 Epipedo</option>
+        </select><br>
+
+        <h1>test</h1>
+        <h1>test</h1>
+        <h2>test</h2>
+        <h1>test</h1>
+        <h2>test</h2>
+        <h2>test</h2>
+        <h1>test</h1>
+        <h2>test</h2>
+    </body>
+</html>

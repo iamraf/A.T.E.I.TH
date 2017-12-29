@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <script>
+            function myFunction()
+            {
+                var output = document.getElementById('output');
+                var button1 = document.getElementById('button1');
+
+                if(button1.value == "Emfanisi")
+                {
+                    for(var i = 0; i < document.images.length; i++)
+                    {
+                        output.innerHTML += document.images[i].src + "</br>";
+                    }
+                    button1.value = "Eksafanisi";
+                }
+                else
+                {
+                    output.innerHTML = " ";
+                    button1.value = "Emfanisi";
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <input id="button1" type="button" value="Emfanisi" onclick="myFunction()">
+
+        <div id="output"></div>
+
+        <img src="a.jpg">
+        <img src="b.png">
+        <img src="c.png">
+        <img src="d.jpg">
+    </body>
+</html>

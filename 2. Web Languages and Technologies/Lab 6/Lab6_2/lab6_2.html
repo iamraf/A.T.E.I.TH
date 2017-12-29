@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <script>
+            var numArray = new Array;
+
+            for(var i = 0; i < 3; i++)
+            {
+                numArray[i] = Math.ceil(Math.random() * 4)
+            }
+
+            alert("You will be asked to guess three numbers I have picked.");
+
+            for(j in numArray)
+            {
+                console.log(numArray[j]);
+
+                guess = prompt("Guess between 1 and 4. Cancel will exit.", "");
+
+                while(guess != numArray[j] && guess != 0)
+                {
+                    guess = prompt("Nope! Try again or type 0 to quit.", "");
+                }
+
+                if(guess == 0)
+                {
+                    if(confirm("OK to quit, Cancel to guess the next number."))
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+
+                alert("That's right!");
+            }
+
+            alert("Goodbye!");
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <script>
+            function createTable()
+            {
+                var textBox1 = document.getElementById("text1");
+                var textBox2 = document.getElementById("text2");
+                var table = document.getElementById("table1");
+
+                for(var i = 0; i < textBox1.value; i++)
+                {
+                    var newRow = table.insertRow(-1);
+
+                    for(var j = 0; j < textBox2.value; j++)
+                    {
+                        var newCell = newRow.insertCell(-1);
+
+                        newCell.innerHTML = i + " " + j;
+                    }
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        Rows<input id="text1" type="text">
+        Columns<input id="text2" type="text">
+        <input id="button1" type="button" value="Create" onclick="createTable()">
+
+        <table id="table1" border="1"></table>
+    </body>
+</html>

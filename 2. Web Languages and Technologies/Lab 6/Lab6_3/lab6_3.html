@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <script>
+            function changeImg(obj)
+            {
+                var image = obj;
+                image.src = "lab6_3_files/Sunset.jpg";
+                console.log(obj);
+            }
+
+            function changeImgBack(obj)
+            {
+                var image = obj;
+                image.src = "lab6_3_files/Bluehills.jpg";
+                console.log(obj);
+            }
+        </script>
+    </head>
+
+    <body>
+        <img id="eikona1" src="lab6_3_files/Bluehills.jpg" onmouseenter="changeImg(this)" onmouseleave="changeImgBack(this)"><br>
+        <img id="eikona2" src="lab6_3_files/Bluehills.jpg" onmouseenter="changeImg(this)" onmouseleave="changeImgBack(this)"><br>
+    </body>
+</html>

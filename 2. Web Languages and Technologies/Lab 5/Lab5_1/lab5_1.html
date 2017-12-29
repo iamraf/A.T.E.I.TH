@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <script>
+            function add()
+            {
+                var textBox1 = document.getElementById('text1');
+                var textBox2 = document.getElementById('text2');
+
+                var sumNumbers = parseInt(textBox1.value) + parseInt(textBox2.value);
+
+                textBox2.value = sumNumbers;
+
+                if(sumNumbers > 1000)
+                {
+                    alert("kappa");
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <input type="text" id="text1">
+        </br>
+        <input type="text" id="text2">
+        </br>
+        <input type="button" value="Add" onclick="add()">
+    </body>
+</html>

@@ -1,0 +1,69 @@
+<!-- 
+
+https://sites.google.com/site/gtiteithe/ergasteria/ergasterio-11-syndyastikes-kai-epanaleptikes-askeseis
+Askhsh 8
+
+-->
+
+<html>
+    <head>
+        <script>
+            var timer;
+            var count;
+
+            function startReturnPics()
+            {
+                timer = setInterval("movePic()", 1000);
+                count = 0;
+            }
+
+            function movePic()
+            {
+                var table1 = document.getElementById("table1");
+                var table2 = document.getElementById("table2");
+
+                table1.rows[0].cells[count].innerHTML = table2.rows[0].cells[0].innerHTML;
+
+                count++;
+
+                table2.rows[0].deleteCell(0);
+
+                if(table2.rows[0].cells.length == 0)
+                {
+                    clearInterval(timer);
+                    count = 0;
+                }
+            }
+
+            function clickMe(img)
+            {
+                var table2 = document.getElementById('table2');
+
+                var cell = table2.rows[0].insertCell();
+
+                cell.innerHTML = "<td><img src=\"" + img.src + "\" onclick=\"clickMe(this)\" width=\"100\" height=\"100\"></td>";
+                img.parentNode.innerHTML = "";
+            }
+        </script>
+    </head>
+
+    <body>
+        <table id="table1">
+            <tr>
+                <td><img id="img1" src="a.jpg" onclick="clickMe(this)" width="100px" height="100px"></td>
+                <td><img id="img2" src="b.png" onclick="clickMe(this)" width="100px" height="100px"></td>
+                <td><img id="img3" src="c.png" onclick="clickMe(this)" width="100px" height="100px"></td>
+                <td><img id="img4" src="d.jpg" onclick="clickMe(this)" width="100px" height="100px"></td>
+            </tr>
+        </table>
+
+        <table id="table2">
+            <tr></tr>
+        </table>
+
+        </br>
+        </br>
+
+        <input id="button1" type="button" value="Return" onclick="startReturnPics()">
+    </body>
+</html>

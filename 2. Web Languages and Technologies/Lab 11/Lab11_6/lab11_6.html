@@ -1,0 +1,94 @@
+<!-- 
+
+https://sites.google.com/site/gtiteithe/ergasteria/ergasterio-11-syndyastikes-kai-epanaleptikes-askeseis
+Askhsh 6
+
+-->
+
+<html>
+    <head>
+        <script>
+            var count = 0;
+            var timer;
+
+            var images = new Array();
+
+            images[0] = "a.jpg";
+            images[1] = "b.png";
+            images[2] = "c.png";
+            images[3] = "d.jpg";
+            images[4] = "f.jpg";
+            images[5] = "e.jpg";
+
+            function startSlideShow()
+            {
+                document.getElementById('button1').disabled = true;
+                document.getElementById('button2').disabled = true;
+
+                timer = setInterval("nextImage()", 1000);
+            }
+
+            function stopSlideShow()
+            {
+                clearInterval(timer);
+
+                document.getElementById('button1').disabled = false;
+                document.getElementById('button2').disabled = false;
+            }
+
+            function nextImage()
+            {
+                var imgs = document.images;
+
+                var i = count % 3;
+
+                imgs[i].width = 50;
+                imgs[i].height = 50;
+
+                count++;
+
+                if(count == images.length)
+                {
+                    count = 0;
+                }
+
+                if((count % 3) == 0)
+                {
+                    replaceImages();
+                }
+
+                document.getElementById('main').src = images[count];
+
+                i = count % 3;
+
+                imgs[i].width = 80;
+                imgs[i].height = 80;
+            }
+
+            function replaceImages()
+            {
+                var imgs = document.images;
+
+                imgs[0].src = images[count];
+                imgs[1].src = images[count + 1];
+                imgs[2].src = images[count + 2];
+            }
+        </script>
+    </head>
+
+    <body onload="startSlideShow()" onmousedown="stopSlideShow()">
+
+        <input id="button1" type="button" value="Epomeni" onclick="nextImage()">
+        <input id="button2" type="button" value="Ekkinisi" onclick="startSlideShow()">
+
+        </br></br>
+
+        <img id="img1" src="a.jpg" width="80px" height="80px">
+        <img id="img2" src="b.png" width="50px" height="50px">
+        <img id="img3" src="c.png" width="50px" height="50px">
+
+        </br>
+
+        <img id="main" src="a.jpg">
+    </body>
+</html>

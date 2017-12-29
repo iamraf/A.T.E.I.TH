@@ -1,0 +1,128 @@
+<!-- 
+
+https://sites.google.com/site/gtiteithe/ergasteria/ergasterio-11-syndyastikes-kai-epanaleptikes-askeseis
+Askhsh 5 
+
+-->
+
+<html>
+    <head>
+        <script>
+            var countDownTimer;
+
+            var count;
+
+            var prasina;
+            var kokkina;
+
+            function startGame()
+            {
+                clearInterval(countDownTimer);
+
+                count = 10;
+
+                prasina = 0;
+                kokkina = 0;
+
+                var table1 = document.getElementById('table1');
+                var div1 = document.getElementById('div1');
+
+                div1.innerHTML = "Time Left: " + count;
+
+                document.getElementById('button1').disabled = true;
+
+                for(var i = 0; i < 4; i++)
+                {
+                    for(var j = 0; j < 4; j++)
+                    {
+                        var random = Math.floor(Math.random() * ((9 - 0) + 1) + 0); //((x - y) + 1) + x
+
+                        table1.rows[i].cells[j].innerHTML = random;
+                        table1.rows[i].cells[j].bgColor = "white";
+                        table1.rows[i].cells[j].onclick = function()
+                        {
+                            check(this);
+                        };
+                    }
+                }
+
+                countDownTimer = setInterval("countDown()", 1000);
+            }
+
+            function countDown()
+            {
+                count--;
+
+                document.getElementById('div1').innerHTML = "Time Left: " + count;
+
+                if(count == 0)
+                {
+                    clearInterval(countDownTimer);
+
+                    document.getElementById('button1').disabled = false;
+
+                    alert("Prasina: " + prasina + " Kokkina: " + kokkina);
+                }
+            }
+
+            function check(cell)
+            {
+                if(document.getElementById('button1').disabled == false || (cell.bgColor == "green" || cell.bgColor == "red"))
+                {
+                    return;
+                }
+
+                if(cell.innerHTML > 5)
+                {
+                    cell.bgColor = "green";
+
+                    prasina++;
+                }
+                else
+                {
+                    cell.bgColor = "red";
+
+                    kokkina++;
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <input id="button1" type="button" value="Start" onclick="startGame()">
+
+        </br>
+        </br>
+
+        <table id="table1" border="1" width="100" height="100">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        </br>
+
+        <div id="div1"></div>
+    </body>
+</html>

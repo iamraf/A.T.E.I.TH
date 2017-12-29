@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <script>
+            var a = 15;
+            var b = 'abc';
+            var c = '10';
+            var d = true;
+
+            function evaluatecode(obj)
+            {
+                document.getElementById("output").innerText = eval(obj.sDbg.value)
+            }
+        </script>
+    </head>
+
+    <body>
+        <form name="frm" onsubmit="evaluatecode(this)">
+            <input type="text" name="sDbg" size="100">
+            <input type="button" value="Run Code" onclick="evaluatecode(frm)">
+        </form>
+
+        <div id="output"></div>
+    </body>
+</html>

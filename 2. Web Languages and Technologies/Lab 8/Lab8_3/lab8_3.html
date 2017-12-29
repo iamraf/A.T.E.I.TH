@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <script>
+            var i = 0;
+
+            function myFunction(e)
+            {
+                var target = e.target;
+
+                if(target.tagName == "LI")
+                {
+                    target.innerHTML = "<img scr=\"a.jpg\" height=\"20px\" alt=\"image\"/>";
+
+                    i++;
+
+                    if(i == 3)
+                    {
+                        alert("Ekanes 3 clicks!")
+                        document.getElementById("list").onclick = false;
+                    }
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <ul id="list" onclick="myFunction(event)">
+            <li>kati1</li>
+            <li>kati2</li>
+            <li>kati3</li>
+            <li>kati4</li>
+            <li>kati5</li>
+            <li>kati6</li>
+        </ul>
+    </body>
+</html>

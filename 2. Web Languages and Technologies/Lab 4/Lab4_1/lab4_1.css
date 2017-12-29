@@ -1,0 +1,14 @@
+body
+{
+    background-repeat: no-repeat;
+    background-image: url('img_tree.png');
+    background-color: teal;
+}
+
+div.content
+{
+    background-color: aqua;
+
+    margin: 15px 25px 15px 200px;
+    padding: 15px;
+}

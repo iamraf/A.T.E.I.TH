@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <script>
+            var i = 0;
+            var imgs = new Array();
+
+            var timer;
+            var timeout;
+
+            imgs[0] = 'a.jpg';
+            imgs[1] = 'b.png';
+            imgs[2] = 'c.png';
+            imgs[3] = 'd.jpg';
+
+            function nextPic()
+            {
+                i++;
+
+                if(i == imgs.length)
+                {
+                    i = 0;
+                }
+
+                document.getElementById('img').src = imgs[i];
+            }
+
+            function startSlide()
+            {
+                document.getElementById("button1").disabled = true;
+                document.getElementById("button2").disabled = false;
+
+                var textBox1 = document.getElementById('text1');
+
+                if(isNaN(textBox1.value) || textBox1.value.length == 0)
+                {
+                    alert("Put number");
+                }
+                else
+                {
+                    timer = setInterval(nextPic, 1000);
+
+                    timeout = setTimeout(stopSlide, textBox1.value * 1000);
+                }
+            }
+
+            function stopSlide()
+            {
+                document.getElementById("button1").disabled = false;
+                document.getElementById("button2").disabled = true;
+
+                clearInterval(timer);
+                clearTimeout(timeout);
+            }
+        </script>
+    </head>
+
+    <body>
+        <input id="button1" type="button" value="Start" onclick="startSlide()">
+        <input id="button2" type="button" value="Cancel" onclick="stopSlide()" disabled>
+        <input id="text1" type="text">
+
+        </br></br>
+
+        <img id="img" src="a.jpg"/>
+    </body>
+</html>

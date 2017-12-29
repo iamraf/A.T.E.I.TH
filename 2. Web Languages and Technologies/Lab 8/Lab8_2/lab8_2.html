@@ -1,0 +1,26 @@
+﻿<html>
+    <head>
+        <script>
+            function myFunction(e)
+            {
+                var target = e.target;
+
+                if(target.tagName == "LI")
+                {
+                    target.innerHTML = "Με Επέλεξες!";
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <ul id="list" onclick="myFunction(event)">
+            <li>kati1</li>
+            <li>kati2</li>
+            <li>kati3</li>
+            <li>kati4</li>
+            <li>kati5</li>
+            <li>kati6</li>
+        </ul>
+    </body>
+</html>

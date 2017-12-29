@@ -1,0 +1,115 @@
+<!-- 
+
+https://sites.google.com/site/gtiteithe/ergasteria/ergasterio-11-syndyastikes-kai-epanaleptikes-askeseis
+Askhsh 3
+
+-->
+
+<html>
+    <head>
+        <script>
+            var MO;
+            var count;
+
+            function startGame()
+            {
+                var button1 = document.getElementById('button1');
+                var table1 = document.getElementById('table1');
+
+                button1.disabled = true;
+
+                MO = 0;
+                count = 0;
+
+                for(var i = 0; i < 5; i++)
+                {
+                    for(var j = 0; j < 5; j++)
+                    {
+                        table1.rows[i].cells[j].innerHTML = Math.ceil(Math.random() * 9);
+                        table1.rows[i].cells[j].bgColor = (Math.ceil(Math.random() * 2) == 1) ? "green" : "red";
+                        table1.rows[i].cells[j].onclick = function()
+                        {
+                            check(this);
+                        };
+                    }
+                }
+
+            }
+
+            function check(cell)
+            {
+                if(document.getElementById('button1').disabled == false)
+                {
+                    return;
+                }
+
+                if(cell.bgColor == "green")
+                {
+                    MO += parseInt(cell.innerHTML);
+
+                    cell.innerHTML++;
+                    cell.bgColor = "red";
+                }
+                else
+                {
+                    MO += parseInt(cell.innerHTML);
+
+                    cell.innerHTML--;
+                    cell.bgColor = "green";
+                }
+
+                if(++count == 10)
+                {
+                    document.getElementById('button1').disabled = false;
+
+                    alert(MO / 10);
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <input id="button1" type="button" value="Start" onclick="startGame()">
+
+        </br>
+        </br>
+
+        <table id="table1" border="1" width="100" height="100">
+            <tr bgcolor="yellow">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr bgcolor="yellow">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr bgcolor="yellow">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr bgcolor="yellow">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr bgcolor="yellow">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </body>
+</html>

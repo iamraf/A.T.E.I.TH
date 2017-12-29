@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <script>
+            function errorHandler(msg, url, line)
+            {
+                var strPrompt = "Captured error : " + msg + "\n On line : " + line + "\n In : " + url + ".";
+                alert(strPrompt);
+            }
+
+            window.onerror = errorHandler;
+        </script>
+    </head>
+
+    <body>
+        Clicking this button calls a non existent object.
+        <form>
+            <input value="Click Me" onclick="FakeO.use()" type="button">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <script>
+            function myFunction()
+            {
+                var table1 = document.getElementById("table1");
+
+                for(i = 0; i < table1.rows.length; i++)
+                {
+                    for(j = 0; j < table1.rows[i].cells.length; j++)
+                    {
+                        var t = Math.round(Math.random() * 10);
+
+                        table1.rows[i].cells[j].innerHTML = t;
+
+                        if(t > 5)
+                        {
+                            table1.rows[i].cells[j].style.backgroundColor = "green";
+                        }
+                        else
+                        {
+                            table1.rows[i].cells[j].style.backgroundColor = "red";
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <table id="table1" border="1">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <input id="button1" type="button" value="Generate" onclick="myFunction()">
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <script>
+            function myFunction()
+            {
+                var text1 = document.getElementById('text1');
+                var compo1 = document.getElementById('compo1');
+
+                if(text1.value.length > 0)
+                {
+                    /*var option = document.createElement("option");
+                    option.text = text1.value;
+                    compo1.add(option);*/
+
+                    /*var option = document.createElement("option");
+                    option.innerHTML = text1.value;
+                    compo1.appendChild(option);*/
+
+                    compo1.innerHTML += "<option>" + text1.value + "</option>";
+
+                    text1.value = "";
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <input id="text1" type="text">
+
+        <select id="compo1">
+            <option>Test 1</option>
+            <option>Test 2</option>
+        </select>
+
+        <input id="button1" type="button" value="Prosthiki" onclick="myFunction()">
+
+    </body>
+</html>

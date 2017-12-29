@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <script>
+            var array = document.getElementsByTagName("A");
+
+            function addEvent()
+            {
+                for(var i = 0; i < array.length; i++)
+                {
+                    array[i].onclick = function safeLink()
+                    {
+                        return confirm("You sure?");
+                    }
+
+                }
+            }
+        </script>
+    </head>
+
+    <body onload="addEvent()">
+        <a href="http://www.teithe.gr">TEI</a>
+        </br>
+        <a href="http://www.it.teithe.gr">IT TEI</a>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <style>
+            .newlink
+            {
+                color: red;
+                background-color: yellow;
+            }
+        </style>
+
+        <script>
+            function myFunction()
+            {
+                var links = document.getElementsByTagName("a");
+
+                /*
+                for(i = 0; i < links.length; i++)
+                {
+                    attr = document.createAttribute("class");
+                    attr.value = "newlink";
+                    links[i].setAttributeNode(attr);
+                }
+                */
+
+                for(i = 0; i < links.length; i++)
+                {
+                    links[i].setAttribute('class', 'newlink');
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <a href="#">Link1</a> </br>
+        <a href="#">Link2</a> </br>
+        <a href="#">Link3</a> </br>
+        <a href="#">Link4</a> </br>
+        <a href="#">Link5</a> </br>
+        <a href="#">Link6</a> </br>
+        <a href="#">Link7</a> </br>
+        <a href="#">Link8</a> </br>
+        <a href="#">Link9</a> </br>
+        <a href="#">Link10</a> </br>
+
+        </br>
+        <input type="button" value="Click Me" onclick="myFunction()">
+    </body>
+</html>

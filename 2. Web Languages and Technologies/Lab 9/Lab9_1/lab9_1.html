@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <script>
+            var i = 0;
+            var imgs = new Array();
+
+            imgs[0] = 'a.jpg';
+            imgs[1] = 'b.png';
+            imgs[2] = 'c.png';
+            imgs[3] = 'd.jpg';
+
+            function nextPic()
+            {
+                i++;
+
+                if(i == imgs.length)
+                {
+                    i = 0;
+                }
+
+                document.getElementById('img').src = imgs[i];
+            }
+
+            function previousPic()
+            {
+                i--;
+
+                if(i == -1)
+                {
+                    i = imgs.length - 1;
+                }
+
+                document.getElementById('img').src = imgs[i];
+            }
+        </script>
+    </head>
+
+    <body>
+        <input type="button" value="Previous" onclick="previousPic()">
+        <input type="button" value="Next" onclick="nextPic()">
+
+        </br></br>
+
+        <img id="img" src="a.jpg"/>
+    </body>
+</html>

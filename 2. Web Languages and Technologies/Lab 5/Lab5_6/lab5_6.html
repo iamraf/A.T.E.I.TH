@@ -1,0 +1,32 @@
+﻿<html>
+    <head>
+        <script>
+            function checkBrowser()
+            {
+                var radio1 = document.getElementById('radio1');
+                var radio2 = document.getElementById('radio2');
+
+                if(radio1.checked)
+                {
+                    document.write(document.domain);
+                }
+                else if(radio2.checked)
+                {
+                    document.write(location.pathname);
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <form>
+            Domain:
+            <input type="radio" id="radio1">
+            </br>
+            Path:
+            <input type="radio" id="radio2">
+            </br>
+            <input type="button" value="Show" onclick="checkBrowser()">
+        </form>
+    </body>
+</html>

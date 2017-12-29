@@ -1,0 +1,96 @@
+<!-- 
+
+https://sites.google.com/site/gtiteithe/ergasteria/ergasterio-11-syndyastikes-kai-epanaleptikes-askeseis
+Askhsh 4
+
+-->
+
+<html>
+    <head>
+        <script>
+            function showDiv()
+            {
+                document.getElementById("div1").style.display = "";
+            }
+
+            function hideDiv()
+            {
+                document.getElementById("div1").style.display = "none";
+            }
+
+            function add()
+            {
+                var listbox1 = document.getElementById('listbox1');
+                var textbox2 = document.getElementById('text2');
+
+                if(textbox2.value == "")
+                {
+                    textbox2.value = listbox1.value;
+                }
+                else
+                {
+                    textbox2.value += ", " + listbox1.value;
+                }
+            }
+
+            function ypovoli()
+            {
+                var div2 = document.getElementById('div2');
+
+                var title = document.getElementById('textarea1');
+                var sugrafeis = document.getElementById('text1');
+                var thematikes = document.getElementById('text2');
+
+                if(title.value == "" || sugrafeis.value == "")
+                {
+                    return alert("Simplirose ta pedia");
+                }
+
+                div2.innerHTML += sugrafeis.value + ", " + title.value + ", " + thematikes.value + "</br>";
+            }
+        </script>
+    </head>
+
+    <body>
+        Titlos
+        <textarea id="textarea1" value="" rows="4" cols="20">
+		
+		</textarea>
+
+        </br>
+
+        Sugrafeis
+        <input id="text1" type="text">
+
+        </br></br>
+
+        Thematikes
+        <input id="text2" type="text" readonly="true">
+
+        </br></br>
+
+        <input id="button1" type="button" value="Prosthiki" onclick="showDiv()">
+
+        </br></br>
+
+        <div id="div1" style="display:none;">
+            <select id="listbox1">
+                <option>Dokimi 1</option>
+                <option>Dokimi 2</option>
+                <option>Dokimi 3</option>
+                <option>Dokimi 4</option>
+            </select>
+
+            <input id="button3" type="button" value="Prosthiki" onclick="add()">
+            <input id="button4" type="button" value="Klisimo" onclick="hideDiv()">
+        </div>
+
+        </br></br>
+
+        <input id="button2" type="button" value="Ypovoli" onclick="ypovoli()">
+
+        </br></br>
+
+        <div id="div2"></div>
+    </body>
+</html>

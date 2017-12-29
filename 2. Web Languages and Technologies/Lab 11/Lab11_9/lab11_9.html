@@ -1,0 +1,84 @@
+<!-- 
+
+https://sites.google.com/site/gtiteithe/ergasteria/ergasterio-11-syndyastikes-kai-epanaleptikes-askeseis
+Askhsh 9
+
+-->
+
+<html>
+    <head>
+        <script type="text/javascript" src="http://erodios.it.teithe.gr/intprog/exams/salesDB.js"></script>
+
+        <script>
+            var totalPrice = 0;
+
+            function fillTable()
+            {
+                var table1 = document.getElementById('table1');
+
+                for(var i = 0, j = products.length; i < j; i++)
+                {
+                    var tableRow, TableCell;
+
+                    tableRow = table1.insertRow(-1);
+
+                    tableCell = tableRow.insertCell(-1);
+                    tableCell.innerHTML = products[i][0];
+
+                    tableCell = tableRow.insertCell(-1);
+                    tableCell.innerHTML = "<img src=\"" + products[i][1] + "\">";
+
+                    tableCell = tableRow.insertCell(-1);
+                    tableCell.innerHTML = products[i][2];
+
+                    tableCell = tableRow.insertCell(-1);
+                    tableCell.innerHTML = "<input type=\"button\" id=\"" + i + "\" value=\"Prosthiki\" onclick=\"addItem(this)\"/>";
+                }
+            }
+
+            function addItem(button)
+            {
+                var table2 = document.getElementById('table2');
+                var tableRow, tableCell;
+
+                tableRow = table2.insertRow(-1);
+
+                tableCell = tableRow.insertCell(-1);
+                tableCell.innerHTML = button.id;
+
+                tableCell = tableRow.insertCell(-1);
+                tableCell.innerHTML = products[button.id][2];
+
+                var posotita = window.prompt("Dose Posotita");
+
+                tableCell = tableRow.insertCell(-1);
+                tableCell.innerHTML = posotita;
+
+                tableCell = tableRow.insertCell(-1);
+                tableCell.innerHTML = posotita * products[button.id][2];
+
+                totalPrice += (posotita * products[button.id][2]);
+
+                document.getElementById("total").innerHTML = "Sunolo:" + totalPrice;
+            }
+        </script>
+    </head>
+
+    <body onload="fillTable()">
+
+        <table id="table1" border="1">
+        </table>
+
+        <div style="position:absolute; top:0; right:0;">
+            <table id="table2" border="1">
+                <tr>
+                    <td>ID</td>
+                    <td>Timi</td>
+                    <td>Posotita</td>
+                    <td>Meriko Sunolo</td>
+                </tr>
+            </table>
+            <p id="total"></p>
+        </div>
+    </body>
+</html>

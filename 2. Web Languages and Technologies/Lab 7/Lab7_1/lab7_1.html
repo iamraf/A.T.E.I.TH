@@ -1,0 +1,27 @@
+﻿<html>
+    <head>
+        <script>
+            function changeColor()
+            {
+                var box = document.getElementById("text1");
+
+                if(box.value.length == 0)
+                {
+                    box.style.backgroundColor = "red";
+                }
+                else if(isNaN(box.value))
+                {
+                    box.style.backgroundColor = "green";
+                }
+                else
+                {
+                    box.style.backgroundColor = "yellow";
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <input type="text" id="text1" onchange="changeColor()">
+    </body>
+</html>

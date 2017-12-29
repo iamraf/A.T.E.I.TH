@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <script>
+            function myFunction(e)
+            {
+                document.getElementById("txt").value = e.target.tagName;
+                document.getElementByID("textarea").innerHTML = e.target.innerHTML;
+            }
+        </script>
+    </head>
+
+    <body onmouseover="myFunction(event)">
+        <input id="txt" type="text"/>
+        <textarea id="textarea" cols="80" rows="15"></textarea>
+
+        <h1>header1</h1>
+        <h2>header2</h2>
+
+        <div>This is a div</div>
+        <p>This is a paragraph</p>
+
+        <ul>
+            <li>kati1</li>
+            <li>kati2</li>
+            <li>kati3</li>
+        </ul>
+    </body>
+</html>

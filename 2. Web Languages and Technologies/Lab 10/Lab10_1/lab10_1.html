@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <script>
+            var i = 0;
+            var imgs = new Array();
+
+            var timer;
+
+            imgs[0] = 'a.jpg';
+            imgs[1] = 'b.png';
+            imgs[2] = 'c.png';
+            imgs[3] = 'd.jpg';
+
+            function nextPic()
+            {
+                i++;
+
+                if(i == imgs.length)
+                {
+                    i = 0;
+                }
+
+                document.getElementById('img').src = imgs[i];
+            }
+
+            function startSlide()
+            {
+                timer = setInterval(nextPic, 1000);
+            }
+
+            function stopSlide()
+            {
+                clearInterval(timer);
+            }
+        </script>
+    </head>
+
+    <body>
+        <input type="button" value="Start" onclick="startSlide()">
+        <input type="button" value="Stop" onclick="stopSlide()">
+
+        </br></br>
+
+        <img id="img" src="a.jpg"/>
+    </body>
+</html>

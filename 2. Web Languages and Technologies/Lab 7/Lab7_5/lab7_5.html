@@ -1,0 +1,29 @@
+﻿<html>
+    <head>
+        <script>
+            function onFocus(box)
+            {
+                box.style.backgroundColor = "yellow";
+            }
+
+            function onBlur(box)
+            {
+                if(box.value.length == 0)
+                {
+                    box.style.backgroundColor = "red";
+                }
+                else
+                {
+                    box.style.backgroundColor = "white";
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <input type="text" id="text1" onfocus="onFocus(this)" onblur="onBlur(this)">
+        <input type="text" id="text2" onfocus="onFocus(this)" onblur="onBlur(this)">
+        <input type="text" id="text3" onfocus="onFocus(this)" onblur="onBlur(this)">
+        <input type="text" id="text4" onfocus="onFocus(this)" onblur="onBlur(this)">
+    </body>
+</html>

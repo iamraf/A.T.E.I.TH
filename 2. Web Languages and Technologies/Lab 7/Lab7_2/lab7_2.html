@@ -1,0 +1,18 @@
+﻿<html>
+    <head>
+        <script>
+            function upperCase()
+            {
+                var box1 = document.getElementById("text1");
+                var box2 = document.getElementById("text2");
+
+                box2.value = box1.value.toUpperCase();
+            }
+        </script>
+    </head>
+
+    <body>
+        <input type="text" id="text1" onkeyup="upperCase()">
+        <input type="text" id="text2">
+    </body>
+</html>

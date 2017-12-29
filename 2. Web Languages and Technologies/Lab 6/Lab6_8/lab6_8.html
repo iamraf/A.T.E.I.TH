@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <script>
+            function rndNum(maxNum)
+            {
+                var num = Math.random();
+                num = num * maxNum;
+                num = Math.ceil(num);
+                return num;
+            }
+
+            function tellUser(specifiedNum)
+            {
+                try
+                {
+                    if(isNaN(specifiedNum))
+                    {
+                        throw "not a number";
+                    }
+
+                    alert(rndNum(specifiedNum));
+                }
+                catch(err)
+                {
+                    return alert(err);
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        Type a number in the area below, then click Calculate.
+        <br>
+        The page will generate a random number between 1 and the
+        number you entered.
+        <br>
+
+        <form>
+            <textarea name="TextNum">10</textarea>
+            <br>
+            <input value="Calculate" onclick="tellUser(TextNum.value)" type="button">
+        </form>
+    </body>
+</html>

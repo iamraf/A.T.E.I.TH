@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <script>
+            function myFunction()
+            {
+                for(var i = 0; i < document.links.length; i++)
+                {
+                    if(window.location.hostname == document.links[i].hostname)
+                    {
+                        document.links[i].style.backgroundColor = "green";
+                    }
+                    else
+                    {
+                        document.links[i].style.backgroundColor = "red";
+                    }
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <a href="http://www.teithe.gr">ATEI</a> </br>
+        <a href="http://www.it.teithe.gr">IT ATEI</a> </br>
+        <a href="http://www.w3schools.com">W3SCHOOLS</a> </br>
+        <a href="askhsh1.html">Askhsh 1</a> </br>
+        <a href="aslhsh2.html">Askhsh 2</a> </br>
+
+        </br>
+        <input type="button" value="Color" onclick="myFunction()">
+    </body>
+</html>

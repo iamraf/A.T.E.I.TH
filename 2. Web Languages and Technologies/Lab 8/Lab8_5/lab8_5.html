@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <script>
+            function myFunction()
+            {
+                var c1 = document.getElementById('compo1');
+                var c2 = document.getElementById('compo2');
+                var r = document.getElementById('res');
+
+                r.innerHTML += "<" + c1.value + " style='color:" + c2.value + "'>This is a new " + c1.value + " colored in " + c2.value + "</" + c1.value + ">";
+            }
+
+            /*function myFunction()
+            {
+                c1 = document.getElementById('compo1');
+                c2 = document.getElementById('compo2');
+                r = document.getElementById('res');
+
+                elmnt = document.createElement(c1.value);
+                elmnt.innerHTML = "This is a new " + c1.value + " colored in " + c2.value;
+
+                x = "color:" + c2.value;
+
+                elmnt.setAttribute("style", x);
+                r.appendChild(elmnt);
+            }*/
+        </script>
+    </head>
+
+    <body>
+        <select id="compo1">
+            <option value="h1">h1</option>
+            <option value="h2">h2</option>
+            <option value="h3">h3</option>
+            <option value="p">p</option>
+            <option value="span">span</option>
+        </select>
+
+        <select id="compo2">
+            <option value="red">red</option>
+            <option value="blue">blue</option>
+            <option value="green">green</option>
+        </select>
+
+        <input type="button" value="Click Me" onclick="myFunction()">
+
+        <div id="res"></div>
+    </body>
+</html>

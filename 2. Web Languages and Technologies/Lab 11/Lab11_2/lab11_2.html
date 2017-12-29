@@ -1,0 +1,37 @@
+<!-- 
+
+https://sites.google.com/site/gtiteithe/ergasteria/ergasterio-11-syndyastikes-kai-epanaleptikes-askeseis
+Askhsh 2 
+
+-->
+
+<html>
+    <head>
+        <script>
+            function addRow()
+            {
+                var table1 = document.getElementById('table1');
+
+                table1.innerHTML += "<tr><td><input id=\"text" + table1.rows.length + "\" type=\"text\"></td> <td><input id=\"" + table1.rows.length + "\" type=\"button\" value=\"test" + table1.rows.length + "\" onclick=\"addImage(this)\"></td> <td><img id=\"img" + table1.rows.length + "\"></td></tr>";
+            }
+
+            function addImage(e)
+            {
+                var textbox = document.getElementById('text' + e.id);
+                var img = document.getElementById('img' + e.id);
+
+                img.src = textbox.value;
+            }
+        </script>
+    </head>
+
+    <body>
+        <input id="button1" type="button" value="Prosthiki" onclick="addRow()">
+
+        </br>
+
+        <table id="table1">
+
+        </table>
+    </body>
+</html>

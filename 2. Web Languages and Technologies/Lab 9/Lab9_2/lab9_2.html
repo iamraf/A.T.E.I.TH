@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <script>
+            var i = 0;
+            var imgs = new Array();
+
+            imgs[0] = new Array('a.jpg', 400, 500);
+            imgs[1] = new Array('b.png', 400, 400);
+            imgs[2] = new Array('c.png', 200, 200);
+            imgs[3] = new Array('d.jpg', 500, 200);
+
+            function nextPic()
+            {
+                i++;
+
+                if(i == imgs.length)
+                {
+                    i = 0;
+                }
+
+                document.getElementById('img').src = imgs[i][0];
+                document.getElementById('img').width = imgs[i][1];
+                document.getElementById('img').height = imgs[i][2];
+            }
+
+            function previousPic()
+            {
+                i--;
+
+                if(i == -1)
+                {
+                    i = i = imgs.length - 1;
+                }
+
+                document.getElementById('img').src = imgs[i][0];
+                document.getElementById('img').width = imgs[i][1];
+                document.getElementById('img').height = imgs[i][2];
+            }
+        </script>
+    </head>
+
+    <body>
+        <input type="button" value="Previous" onclick="previousPic()">
+        <input type="button" value="Next" onclick="nextPic()">
+
+        </br></br>
+
+        <img id="img" src="a.jpg"/>
+    </body>
+</html>

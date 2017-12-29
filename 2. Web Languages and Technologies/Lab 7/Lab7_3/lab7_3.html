@@ -1,0 +1,24 @@
+﻿<html>
+    <head>
+        <script>
+            function mouseOver()
+            {
+                document.getElementById("img1").src = "B.jpg";
+            }
+
+            function mouseOut()
+            {
+                document.getElementById("img1").src = "A.jpg";
+            }
+
+            function mouseDown()
+            {
+                document.getElementById("img1").src = "C.jpg";
+            }
+        </script>
+    </head>
+
+    <body>
+        <image id="img1" src="A.jpg" onmouseover="mouseOver()" onmouseout="mouseOut()" onmousedown="mouseDown()">
+    </body>
+</html>

@@ -1,0 +1,21 @@
+table.c
+{
+    border-collapse: collapse;
+    font-family: Arial;
+}
+
+table.c th
+{
+    color: white;
+    background-color: #009900;
+}
+
+table.c td, table.c th
+{
+    border: 1px solid black;
+}
+
+table.c tr:nth-child(even)
+{
+    background-color: #ccffcc
+}
