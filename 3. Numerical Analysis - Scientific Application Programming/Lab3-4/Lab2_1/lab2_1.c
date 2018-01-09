@@ -4,9 +4,8 @@
 double iparag(int i)
 {
     float iparag = 1;
-    int j = 1;
 
-    for(j; j <= i; j++)
+    for(int j = 1; j <= i; j++)
     {
         iparag *= j;
     }
