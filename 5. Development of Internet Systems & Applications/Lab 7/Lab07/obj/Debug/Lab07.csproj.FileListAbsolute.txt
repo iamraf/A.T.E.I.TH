@@ -1,0 +1,5 @@
+C:\Users\Shakira\Desktop\Lab07\Lab07\bin\Lab07.dll
+C:\Users\Shakira\Desktop\Lab07\Lab07\bin\Lab07.pdb
+C:\Users\Shakira\Desktop\Lab07\Lab07\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Shakira\Desktop\Lab07\Lab07\obj\Debug\Lab07.dll
+C:\Users\Shakira\Desktop\Lab07\Lab07\obj\Debug\Lab07.pdb
