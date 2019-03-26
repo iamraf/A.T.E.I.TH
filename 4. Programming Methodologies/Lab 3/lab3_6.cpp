@@ -2,23 +2,23 @@
 
 using namespace std;
 
-void diav(int *a[], int n)
+void diav(int *a, int n)
 {
     cout << "Dose " << n << " akereous" << endl;
 
     for(int i = 0; i < n; i++)
     {
-        cin >> *a[i];
+        cin >> *(a + i);
     }
 }
 
-float moa(int *a[], int n1, int n2)
+float moa(int *a, int n1, int n2)
 {
-    float mo = 0;
+    float mo{0};
 
     for(int i = n1; i < n2; i++)
     {
-        mo += *a[i];
+        mo += *(a + i);
     }
 
     return mo / (n2 - n1);
@@ -26,8 +26,8 @@ float moa(int *a[], int n1, int n2)
 
 int main()
 {
-    int n = 10;
-    int *a[n];
+    int n{10};
+    int a[n]{0};
 
     diav(a, n);
 
