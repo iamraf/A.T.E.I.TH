@@ -1,0 +1,66 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.Master.cs" Inherits="Lab07.MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Untitled Page</title>
+        <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="./bootstrap/css/dashboard.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+     <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.php">BookStore</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><asp:LinkButton ID="LinkButton1" runat="server" OnClick="HomeB">Αρχική</asp:LinkButton></li>
+            <li><asp:LinkButton ID="LinkButton2" runat="server" OnClick="AboutB">Σχετικά</asp:LinkButton></li>
+            <li><asp:LinkButton ID="LinkButton3" runat="server" OnClick="ProductsB">Προϊόντα</asp:LinkButton></li>
+            <li><asp:LinkButton ID="LinkButton4" runat="server" OnClick="ShowCartB">Το καλάθι μου</asp:LinkButton></li>
+            <li><asp:LinkButton ID="LinkButton5" runat="server" OnClick="LoginB">Είσοδος</asp:LinkButton></li>
+          </ul>
+        </div>
+      </div>
+    </nav>      
+  <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <asp:Panel ID="userMenu" runat="server">
+                <asp:LinkButton ID="LinkButton6" OnClick="CustomerOrders" runat="server">Οι παραγγελίες μου</asp:LinkButton><br />
+                <asp:LinkButton ID="LinkButton7" OnClick="CustomerInfo" runat="server">Οι πληροφορίες μου</asp:LinkButton><br />
+                <asp:LinkButton ID="LinkButton8" OnClick="Logout" runat="server">Αποσύνδεση</asp:LinkButton><br />
+            </asp:Panel>
+            <asp:Panel ID="adminMenu" runat="server">
+                <asp:LinkButton ID="LinkButton9" OnClick="adminCat" runat="server">Διαχείριση Κατηγοριών</asp:LinkButton><br />
+                <asp:LinkButton ID="LinkButton10" OnClick="adminPro" runat="server">Διαχείριση Προϊόντων</asp:LinkButton><br />
+                <asp:LinkButton ID="LinkButton12" OnClick="adminOrd" runat="server">Διαχείριση Παραγγελιών</asp:LinkButton><br />
+                <asp:LinkButton ID="LinkButton11" OnClick="Logout" runat="server">Αποσύνδεση</asp:LinkButton><br />  
+            </asp:Panel>
+         </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <asp:ContentPlaceHolder id="MasterContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        </div>
+      </div>
+    </div>
+ 
+    </div>
+    </form>
+</body>
+</html>

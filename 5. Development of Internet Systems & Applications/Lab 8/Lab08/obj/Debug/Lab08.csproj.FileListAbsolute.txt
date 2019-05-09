@@ -1,0 +1,10 @@
+C:\Users\Shakira\Desktop\Lab08\Lab08\bin\Lab08.dll
+C:\Users\Shakira\Desktop\Lab08\Lab08\bin\Lab08.pdb
+C:\Users\Shakira\Desktop\Lab08\Lab08\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Shakira\Desktop\Lab08\Lab08\obj\Debug\Lab08.dll
+C:\Users\Shakira\Desktop\Lab08\Lab08\obj\Debug\Lab08.pdb
+C:\Users\Shakira\Documents\Εξεταστική 5ο εξάμηνο\Αδισε Εργαστηριο\Lab08\Lab08\bin\Lab08.dll
+C:\Users\Shakira\Documents\Εξεταστική 5ο εξάμηνο\Αδισε Εργαστηριο\Lab08\Lab08\bin\Lab08.pdb
+C:\Users\Shakira\Documents\Εξεταστική 5ο εξάμηνο\Αδισε Εργαστηριο\Lab08\Lab08\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Shakira\Documents\Εξεταστική 5ο εξάμηνο\Αδισε Εργαστηριο\Lab08\Lab08\obj\Debug\Lab08.dll
+C:\Users\Shakira\Documents\Εξεταστική 5ο εξάμηνο\Αδισε Εργαστηριο\Lab08\Lab08\obj\Debug\Lab08.pdb
