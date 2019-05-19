@@ -11,38 +11,36 @@ word([t,a,b,l,e]).
 
 changeletter(Word, CorrectWord):-
     append(Begin, [Letter1|End], Word),
-    word(CorrectWord),
     append(Begin, [Letter2|End], CorrectWord),
-    Letter1 \= Letter2.
-	
-swapletters(Word, CorrectWord):-
-    append(Begin, [Letter1|Ypoloipo], Word),
-    Ypoloipo = [Letter2|End],
     word(CorrectWord),
-    append(Begin, [Letter2|YpoloipoCW], CorrectWord),
-    YpoloipoCW = [Letter1|End],
     Letter1 \= Letter2.
-	
-exchangeletters(Word, CorrectWord):-
-    append(Begin, [Letter1,Letter2|End], Word),
+
+swapletters(Word,CorrectWord):-
+    append(Begin,[Letter1,Letter2|Rest],Word),
+    append(Begin,[Letter2,Letter1|Rest],CorrectWord),
+    word(CorrectWord).
+
+exchangeletters(Word,CorrectWord):-
+    append(Begin,[Letter2|End],Word),
+    append(Top,[Letter1|Middle],Begin),
+    append(Top,[Letter2|Middle],CorrectHalf),
+    append(CorrectHalf,[Letter1|End],CorrectWord),
+    word(CorrectWord).
+
+delete2(Word,CorrectWord):-
+    append(Begin,[Letter|Rest],Word),
+    append(Middle,[Letter2|End],Rest),
+    append(Middle,End,Half),
+    append(Begin,Half,CorrectWord),
     word(CorrectWord),
-    append(Begin, [Letter2,Letter1|End], CorrectWord),
-    Letter1 \= Letter2.
-	
-delete2(Word, CorrectWord):-
-    append(Begin, [Letter1|Ypoloipo], Word),
-    append(Middle, [Letter2|End], Ypoloipo),
-    word(CorrectWord),
-    append(Begin, YpoloipoCW, CorrectWord),
-    append(Middle, End, YpoloipoCW),
-    Letter1 \= Letter2.
-	
-movefront(Word, CorrectWord):-
-    append(Begin, Ypoloipo, Word),
-    append(Middle, [Letter|End], Ypoloipo),
-    word(CorrectWord),
-    append(Begin, YpoloipoCW, CorrectWord),
-    append([Letter|Middle], End, YpoloipoCW).
+    Letter\=Letter2.
+
+movefront(Word,CorrectWord):-
+    append(Begin,Rest,Word),
+    append(Middle,[Letter|End],Rest),
+    append(Begin,[Letter|Middle],Half),
+    append(Half,End,CorrectWord),
+    word(CorrectWord).
 	
 spell_check([]).
 spell_check([Head|Tail]):-
