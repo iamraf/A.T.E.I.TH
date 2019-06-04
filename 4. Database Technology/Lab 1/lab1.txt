@@ -1,0 +1,77 @@
+1. 
+
+SELECT sname, age 
+FROM SAILORS;
+
+2. 
+
+SELECT * 
+FROM SAILORS 
+WHERE rating > 7;
+
+3. 
+
+SELECT s.sname 
+FROM SAILORS s JOIN RESERVES r ON (s.sid = r.sid) 
+WHERE r.bid = 103;
+
+4. 
+
+SELECT r.sid 
+FROM RESERVES r JOIN BOATS b ON (r.bid = b.bid) 
+WHERE b.color = 'red';
+
+5. 
+
+SELECT s.sname 
+FROM SAILORS s 
+WHERE s.sid IN (SELECT r.sid 
+		FROM RESERVES r JOIN BOATS b ON (r.bid = b.bid) 
+		WHERE b.color = 'red');
+
+6. 
+
+SELECT s.age 
+FROM SAILORS s 
+WHERE s.sname LIKE 'B_%b';
+
+7.
+
+SELECT DISTINCT s.sname, s.sid 
+FROM SAILORS s, RESERVES r, BOATS b
+WHERE s.sid = r.sid AND r.bid = b.bid AND b.color = 'red'
+INTERSECT
+SELECT DISTINCT s.sname, s.sid
+FROM SAILORS s, RESERVES r, BOATS b
+WHERE s.sid = r.sid AND r.bid = b.bid AND b.color = 'green';
+
+
+SELECT DISTINCT s.sname, s.sid 
+FROM SAILORS s, RESERVES r, BOATS b, RESERVES r2, BOATS b2
+WHERE s.sid = r.sid AND r.bid = b.bid AND s.sid = r2.sid AND r2.bid = b2.bid AND b.color = 'red' AND b2.color = 'green';
+
+8.
+
+SELECT sname FROM SAILORS WHERE sid IN(SELECT DISTINCT s.sid
+					FROM SAILORS s, RESERVES r, BOATS b
+					WHERE s.sid = r.sid AND r.bid = b.bid AND b.color = 'red'
+					MINUS
+					SELECT DISTINCT s.sid
+					FROM SAILORS s, RESERVES r, BOATS b
+					WHERE s.sid = r.sid AND r.bid = b.bid AND b.color = 'green');
+
+9.
+
+SELECT s.sname 
+FROM SAILORS s
+WHERE s.sid NOT IN (SELECT R.sid 
+                    FROM RESERVES R 
+                    WHERE R.bid IN (SELECT b.bid 
+                                    FROM BOATS B 
+                                    WHERE B.color = 'green'));
+
+10.
+
+SELECT s.sname FROM SAILORS s
+WHERE NOT EXISTS (SELECT * FROM RESERVES r, BOATS b 
+WHERE s.sid = r.sid AND r.bid = b.bid AND b.color = 'green');

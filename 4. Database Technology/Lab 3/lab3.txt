@@ -1,0 +1,308 @@
+0.
+
+DROP TABLE Accounts;
+CREATE TABLE Accounts (acctID INTEGER NOT NULL PRIMARY KEY, balance INTEGER NOT NULL,
+CONSTRAINT unloanable_account CHECK (balance >= 0));
+INSERT INTO Accounts (acctID,balance) VALUES (101,1000);
+INSERT INTO Accounts (acctID,balance) VALUES (202,2000);
+SELECT * FROM Accounts;
+COMMIT;
+
+1.
+
+SELECT @@GLOBAL.tx_isolation, @@tx_isolation;
+
+SET GLOBAL TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+SET SESSION TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+
+2.
+
+SET SESSION TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+
+3.
+
+START TRANSACTION;
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+SELECT COUNT(*) FROM Accounts;
+ROLLBACK;
+
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+START TRANSACTION;
+SELECT COUNT(*) FROM Accounts;
+ROLLBACK;
+
+4.
+
+a) 
+
+SET AUTOCOMMIT = 0;
+
+SELECT * FROM Accounts;
+
+SELECT COUNT(*) FROM Accounts;
+COMMIT;
+SET TRANSACTION ISOLATION LEVEL READ
+COMMITTED;
+START TRANSACTION;
+SELECT COUNT(*) FROM Accounts;
+
+SELECT COUNT(*) FROM Accounts;
+COMMIT;
+SELECT COUNT(*) FROM Accounts;
+
+SELECT COUNT(*) FROM Accounts;
+COMMIT;
+SELECT COUNT(*) FROM Accounts;
+
+b)
+
+SET AUTOCOMMIT = 0;
+
+INSERT INTO Accounts (acctID,balance) VALUES (301,4000);
+COMMIT;
+
+INSERT INTO Accounts (acctID,balance) VALUES (401,1000);
+COMMIT;
+
+5.
+
+DROP TABLE Accounts;
+CREATE TABLE Accounts (acctID INTEGER NOT NULL PRIMARY KEY, balance INTEGER NOT NULL,
+CONSTRAINT unloanable_account CHECK (balance >= 0));	
+INSERT INTO Accounts (acctID,balance) VALUES (101,1000);
+INSERT INTO Accounts (acctID,balance) VALUES (202,2000);
+SELECT * FROM Accounts;
+COMMIT;
+
+
+6.
+
+DROP TABLE Accounts;
+CREATE TABLE Accounts (acctID INTEGER NOT NULL PRIMARY KEY, balance INTEGER NOT NULL,
+CONSTRAINT unloanable_account CHECK (balance >= 0));	
+INSERT INTO Accounts (acctID,balance) VALUES (101,1000);
+INSERT INTO Accounts (acctID,balance) VALUES (202,2000);
+SELECT * FROM Accounts;
+COMMIT;
+
+7.
+
+DROP TABLE Accounts;
+CREATE TABLE Accounts (acctID INTEGER NOT NULL PRIMARY KEY, balance INTEGER NOT NULL,
+CONSTRAINT unloanable_account CHECK (balance >= 0));	
+INSERT INTO Accounts (acctID,balance) VALUES (101,1000);
+INSERT INTO Accounts (acctID,balance) VALUES (202,2000);
+SELECT * FROM Accounts;
+COMMIT;
+
+a)
+
+SET AUTOCOMMIT = 0;
+SET SESSION TRANSACTION ISOLATION LEVEL
+REPEATABLE READ;
+COMMIT;SET AUTOCOMMIT = 0;
+SET SESSION TRANSACTION ISOLATION LEVEL
+REPEATABLE READ;
+COMMIT;
+
+SET TRANSACTION ISOLATION LEVEL READ
+COMMITTED;
+SELECT COUNT(*) FROM Accounts;
+
+SELECT COUNT(*) FROM Accounts;
+COMMIT;
+
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+SELECT COUNT(*) FROM Accounts;
+COMMIT;
+
+SET TRANSACTION ISOLATION LEVEL REPEATABLE
+READ;
+INSERT INTO Accounts (acctID, balance) VALUES
+(501,2500);
+
+SELECT COUNT(*) FROM Accounts;
+COMMIT;
+
+b)
+
+SET AUTOCOMMIT = 0;
+
+INSERT INTO Accounts (acctID,balance) VALUES
+(301,4000);
+COMMIT;
+
+INSERT INTO Accounts (acctID,balance) VALUES
+(401,8000);
+COMMIT;
+
+INSERT INTO Accounts (acctID,balance) VALUES
+(601,7000);
+COMMIT;
+
+8.
+
+SET AUTOCOMMIT = 0;
+SET SESSION TRANSACTION ISOLATION LEVEL
+REPEATABLE READ;
+COMMIT;SET AUTOCOMMIT = 0;
+SET SESSION TRANSACTION ISOLATION LEVEL
+REPEATABLE READ;
+COMMIT;
+
+a)
+
+SET AUTOCOMMIT = 0;
+SET TRANSACTION
+ISOLATION LEVEL REPEATABLE READ;
+UPDATE Accounts
+SET balance = balance - 100
+WHERE acctID = 101;
+UPDATE Accounts
+SET balance = balance + 100
+WHERE acctID = 202;
+
+ROLLBACK;
+SELECT * FROM Accounts;
+COMMIT;
+
+b)
+
+SET AUTOCOMMIT = 0;
+SET TRANSACTION
+ISOLATION LEVEL READ UNCOMMITTED;
+SELECT * FROM Accounts;
+COMMIT;
+
+9.
+
+DROP TABLE Accounts;
+CREATE TABLE Accounts (acctID INTEGER NOT NULL PRIMARY KEY, balance INTEGER NOT NULL,
+CONSTRAINT unloanable_account CHECK (balance >= 0));
+INSERT INTO Accounts (acctID,balance) VALUES (101,1000);
+INSERT INTO Accounts (acctID,balance) VALUES (202,2000);
+SELECT * FROM Accounts;
+COMMIT;
+
+set innodb_lock_wait_timeout=1000;
+
+a)
+
+SET AUTOCOMMIT = 0;
+SET TRANSACTION 
+ISOLATION LEVEL SERIALIZABLE;
+SELECT balance FROM Accounts
+WHERE acctID = 101;
+
+UPDATE Accounts  SET balance = balance - 200  
+WHERE acctID = 101;
+
+SELECT acctID, balance FROM Accounts 
+WHERE acctID = 101;
+COMMIT;
+
+
+b)
+
+SET AUTOCOMMIT = 0;
+SET TRANSACTION 
+ISOLATION LEVEL SERIALIZABLE;
+SELECT balance FROM Accounts 
+WHERE acctID = 101;
+
+UPDATE Accounts  SET balance = balance - 500  
+WHERE acctID = 101;
+
+SELECT acctID, balance FROM Accounts 
+WHERE acctID = 101;
+COMMIT;
+
+10.
+
+DROP TABLE Accounts;
+CREATE TABLE Accounts (acctID INTEGER NOT NULL PRIMARY KEY, balance INTEGER NOT NULL,
+CONSTRAINT unloanable_account CHECK (balance >= 0));
+INSERT INTO Accounts (acctID,balance) VALUES (101,1000);
+INSERT INTO Accounts (acctID,balance) VALUES (202,2000);
+SELECT * FROM Accounts;
+COMMIT;
+
+a)
+
+SET AUTOCOMMIT = 0;
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+UPDATE Accounts  SET balance = balance - 100 
+WHERE acctID = 101;
+
+UPDATE Accounts 
+SET balance = balance + 100 WHERE acctID = 202;
+
+COMMIT;
+
+SELECT balance FROM Accounts WHERE acctID = 202;
+
+
+b)
+
+SET AUTOCOMMIT = 0;
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+UPDATE Accounts  SET balance = balance - 200 
+WHERE acctID = 202;
+
+UPDATE Accounts  SET balance = balance + 200 
+WHERE acctID = 101;
+
+COMMIT;
+
+SELECT balance FROM Accounts WHERE acctID = 101;
+
+11.
+
+DROP TABLE Accounts;
+CREATE TABLE Accounts (acctID INTEGER NOT NULL PRIMARY KEY, balance INTEGER NOT NULL,
+CONSTRAINT unloanable_account CHECK (balance >= 0));
+INSERT INTO Accounts (acctID,balance) VALUES (101,1000);
+INSERT INTO Accounts (acctID,balance) VALUES (202,2000);
+SELECT * FROM Accounts;
+COMMIT;
+
+a)
+
+SET AUTOCOMMIT = 0;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+-- Amount to be transfered by A
+SET @amountA = 200; 
+SET @balanceA = 0;   -- Init value
+SELECT balance INTO @balanceA
+FROM Accounts WHERE acctID = 101;
+SET @balanceA = @balanceA - @amountA;
+SELECT @balanceA;
+
+UPDATE Accounts SET balance = @balanceA 
+WHERE acctID = 101;
+
+SELECT acctID, balance FROM Accounts WHERE acctID = 101;
+COMMIT;
+
+
+
+b)
+
+SET AUTOCOMMIT = 0;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+-- Amount to be transfered by B 
+SET @amountB = 500; 
+SET @balanceB = 0;   -- Init value
+SELECT balance INTO @balanceB
+FROM Accounts WHERE acctID = 101;
+SET @balanceB = @balanceB - @amountB;
+SELECT @balanceB;
+
+-- continue without waiting for A!
+UPDATE Accounts SET balance = @balanceB 
+WHERE acctID = 101;
+
+SELECT acctID, balance FROM Accounts WHERE acctID = 101;
+COMMIT;
+

@@ -1,0 +1,48 @@
+1.
+
+SELECT y.Onoma, y.Eponumo, Value(y) FROM Ypallilos_table y
+
+2.
+
+SELECT y.Onoma, y.Eponumo, Value(y) FROM Ypallilos_table y WHERE Value(y) IS OF (ONLY Ypallilos_type);
+
+3.
+
+SELECT y.Onoma, y.Eponumo, Value(y) FROM Ypallilos_table y WHERE Value(y) IS OF (Ypallilos_type);
+
+4.
+
+SELECT DISTINCT d.Afetiria.Onoma, d.Proorismos.Onoma, d.Leoforeio.Pliroma.Odigos.Onoma, d.Leoforeio.Pliroma.Synodos.Onoma FROM Dromologio_table d;
+
+5.
+
+SELECT DISTINCT d.Afetiria.Onoma, d.Proorismos.Onoma, d.Leoforeio.Pliroma.Odigos.Onoma, d.Leoforeio.Pliroma.Synodos.Onoma,
+d.Hmera_dromologiou FROM Dromologio_table d WHERE d.Hmera_dromologiou = 'Kuriaki' AND d.ora_dromologiou.hour > 12;
+
+6.
+
+SELECT d.Afetiria.Onoma, Count(*) FROM Dromologio_table d GROUP BY d.Afetiria.Onoma;
+
+7.
+
+SELECT d.Afetiria.Onoma, COUNT(*) FROM Dromologio_table d GROUP BY d.Afetiria.Onoma HAVING COUNT(*) > 5;
+
+8.
+
+SELECT y.Onoma, y.Eponumo, Value(y) FROM Ypallilos_table y WHERE y.Eponumo like 'P%';
+
+9.
+
+SELECT y.Onoma, y.Eponumo, TREAT(Value(y) AS Synodos_type).Vathmos, TREAT(Value(y) as Odigos_type).Typos, Value(y) FROM Ypallilos_table y WHERE y.Eponumo LIKE 'P%';
+
+10.
+
+SELECT y.Onoma, y.Eponumo FROM Ypallilos_table y WHERE TREAT(Value(y) AS Synodos_type).Vathmos = 'A'
+UNION
+SELECT y.Onoma, y.Eponumo FROM Ypallilos_table y WHERE TREAT(Value(y) AS Odigos_type).Typos = 'Erasitexniko';
+
+11.
+
+SELECT y.Onoma, y.Eponumo, TREAT(Value(y) AS Synodos_type).Vathmos, TREAT(Value(y) AS Odigos_type).Typos, Value(y) 
+FROM Ypallilos_table y 
+WHERE TREAT(Value(y) AS Synodos_type).Vathmos = 'A' OR TREAT(Value(y) AS Odigos_type).Typos = 'Erasitexniko';
